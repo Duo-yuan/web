@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background: #2D67B2;
+    background: #ffffff;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -42,3 +42,24 @@ footer {
     padding: 1rem;
     margin-top: 3rem;
 }
+
+ .highlight-link {
+      position: relative;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .highlight-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: orange;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .highlight-link:hover::after {
+      width: 100%;
+    }

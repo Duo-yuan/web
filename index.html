@@ -5,90 +5,212 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>多圓廣告行銷有限公司</title>
     <link rel="stylesheet" href="style.css">
+	
+	
+ <style>
+    .carousel {
+      position: relative;
+      width: 80%;
+      max-width: 800px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 10px;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-images img {
+      width: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+
+    .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .carousel-buttons button {
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .carousel-buttons button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .carousel-dots span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .carousel-dots .active {
+      background-color: #333;
+    }
+  </style>
+  
+  
+  
+  
+	
+	
+	
+	
+	
+	
+	
+	
+	
 </head>
 <body>
 
 <header>
+<table cellpadding="5"  width="85%" align="center" valign="center" border="0">
+  <tr>
+    <td align="left">
+<img src="img/logo.png" alt="多圓廣告行銷有限公司"></td>
 
+	<td  width="100px">
+<span style="font-size:22px;color:#353334;">
+<a href="#" class="highlight-link">服務內容</a>
+
+</span></td>
+	<td  width="100px">
+<span style="font-size:22px;color:#353334;">
+<a href="#" class="highlight-link">場佈用品</a>
+
+</span></td>
+	<td  width="100px">
+<span style="font-size:22px;color:#353334;">
+<a href="#" class="highlight-link">最新消息</a>
+
+</span></td>
+	<td  width="100px">
+<span style="font-size:22px;color:#353334;">
+<a href="#" class="highlight-link">詢價單</a>
+
+</span></td>
+
+</tr></table>
 </header>
+	<center>
+	
+	
+	
+	
+	
+<div class="carousel">
+  <div class="carousel-images" id="carouselImages">
+    <img src="img/Duoyuan.png?text=圖片1" height="300" width="500" alt="圖片1">
+    <img src="img/Duoyuan.png?text=圖片2" height="300" width="500"  alt="圖片2">
+    <img src="img/Duoyuan.png?text=圖片3" height="300" width="500"  alt="圖片3">
+  </div>
+
+  <div class="carousel-buttons">
+    <button onclick="prevSlide()">❮</button>
+    <button onclick="nextSlide()">❯</button>
+  </div>
+</div>
+
+<div class="carousel-dots" id="carouselDots">
+ </div>
+
+<script>
+  const carousel = document.getElementById("carouselImages");
+  const dotsContainer = document.getElementById("carouselDots");
+  const totalSlides = carousel.children.length;
+  let currentIndex = 0;
+  let dots = [];
+
+  // 建立指示器
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement("span");
+    dot.addEventListener("click", () => {
+      currentIndex = i;
+      updateSlide();
+    });
+    dotsContainer.appendChild(dot);
+    dots.push(dot);
+  }
+
+  function updateSlide() {
+    carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+    dots.forEach((dot, i) => {
+      dot.classList.toggle("active", i === currentIndex);
+    });
+  }
+
+  function nextSlide() {
+    currentIndex = (currentIndex + 1) % totalSlides;
+    updateSlide();
+  }
+
+  function prevSlide() {
+    currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+    updateSlide();
+  }
+
+  // 自動播放
+  setInterval(nextSlide, 10000);
+  updateSlide();
+</script>
+
+
+
+
+
+
+
+
 	
 <section id="about">
-<h2><img src="img/logo.png" alt="多圓廣告行銷有限公司"></h2>
+<center>
+<span style="font-size:35px;color:#136BA9;">
 
+<b>
+    關於多圓<br>
+</span>
+<span style="font-size:20px;color:#136BA9;">
+<b>
+About Duo Yuan<br>
+</b></span>
+<span style="font-size:20px;">
+我們專注於為教育與文化傳承打造深具影響力的活動場景。從概念發想到空間設計，<br>
+細緻地撐起每一份對知識的敬意與文化延續的責任，透過創意與設計，放大影響力，<br>
+讓每個有意義的故事都能被看見、被感動、被流傳。<br>
 
-
-<table cellpadding="5" style="width:800px; table-layout:fixed; border-collapse:collapse;">
-  <tr >
-
-
-<td style="width:500px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
-
-<span style="font-size:40px;">
-<span style="color:#2D67B2;">
-<b><i>完美呈現<br>
-與客戶之間的承諾<br></i></b></span></span>
-
-<span style="font-size:12px;">
-<span style="color:#999997;">
-<i>
-Perfect Presentation - Our Commitment With
-Our Customer<br><br>
-</i></span></span>
-
-<hr>
-
-<span style="letter-spacing:0.2em;">
-<span style="color:#353334;">
-<span style="font-size:22px;">
-
-<center><br>
-多圓廣告是一個成立15年的大家庭<br>
-
-我們致力於提供客戶有溫度的服務<br>
-
-期許在過程中<br>
-
-能讓您感受到我們的貼心<br>
-
-在我們詼諧的談笑聲中<br>
-
-能激發出優秀的創意<br>
-
-​完美呈現與客戶之間的承諾<br>
-
-是多圓團隊力行實踐的核心價值<br>
-
-讓我們用專業<br>
-
-​成為您可靠又和善的專案好夥伴<br>
 
 </center>
-
-</span></span></span></span></p>
-
-</td>
-
-
-    <td style="width:400px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">
-
-<img src="img/Duoyuan.png" alt="多圓廣告行銷有限公司" >
-
-
-</td>
-
-  </tr>
-
-</table>
-
 </section>
 
 <section id="services">
 <center>
-<span style="font-size:35px;">
-<span style="color:#2D67B2;">
+<span style="font-size:35px;color:#136BA9;">
 <b>
-    我們的服務
-<br></b></span></span>
+    服務內容
+<br></b></span>
 
 <span style="font-size:20px;">
     <ul>
@@ -106,18 +228,17 @@ Our Customer<br><br>
 
 <section id="contact">
 <center>
-<span style="font-size:35px;">
-<span style="color:#2D67B2;">
+<span style="font-size:35px;color:#136BA9;">
 
 <b>
 
     聯絡我們
 
-</span></span>
+</span>
     <p>多圓廣告行銷有限公司位於高雄市三民區，處於高雄市中心，交通發達，<br>
 鄰近高雄火車站、高雄高工、高雄醫學大學、國立科學工藝博物館。</p>
 <p><a href="https://www.facebook.com/profile.php?id=100054542045593" target="_blank"><img src="img/fb.png"></a>
-    <p><a href="mailto:duoyuan382@gmail.com">duoyuan382@gmail.com</a></p>
+    <p><a href="mailto:duoyuan382@gmail.com" class="highlight-link">duoyuan382@gmail.com</a></p>
 </span></span>
 </section>
 
