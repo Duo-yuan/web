@@ -5,115 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>多圓廣告行銷有限公司</title>
     <link rel="stylesheet" href="style.css">
-	
-	
+
  <style>
-    .carousel {
-      position: relative;
-      width: 80%;
-      max-width: 800px;
-      margin: 40px auto;
-      overflow: hidden;
-      border-radius: 10px;
-    }
 
-    .carousel-images {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .carousel-images img {
-      width: 100%;
-      flex-shrink: 0;
-      object-fit: cover;
-    }
-
-    .carousel-buttons {
-      position: absolute;
-      top: 50%;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      transform: translateY(-50%);
-    }
-
-    .carousel-buttons button {
-      background: rgba(0, 0, 0, 0.5);
-      border: none;
-      color: white;
-      font-size: 24px;
-      padding: 10px;
-      cursor: pointer;
-    }
-
-    .carousel-buttons button:hover {
-      background: rgba(0, 0, 0, 0.8);
-    }
-
-    .carousel-dots {
-      text-align: center;
-      margin-top: 10px;
-    }
-
-    .carousel-dots span {
-      display: inline-block;
-      width: 12px;
-      height: 12px;
-      margin: 5px;
-      background-color: #bbb;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    .carousel-dots .active {
-      background-color: #333;
-    }
-  </style>
+ </style>
   
-  
-  
-  
-	
-	
-	
-	
-	
-	
-	
-	
 	
 </head>
 <body>
 
 <header>
-<table cellpadding="5"  width="85%" align="center" valign="center" border="0">
-  <tr>
-    <td align="left">
-<img src="img/logo.png" alt="多圓廣告行銷有限公司"></td>
+<center>
+<div class="container">
 
-	<td  width="100px">
-<span style="font-size:22px;color:#353334;">
+  <div class="card-Fimage">
+    <img src="img/logo_L.png" alt="多圓廣告行銷有限公司">
+	</div>
+
+<table cellpadding="5"  width="90%" align="center" valign="center" border="0">
+  <tr>
+   	<td  width="100px">
+<span style="font-size:20px;color:#353334;">
 <a href="#" class="highlight-link">服務內容</a>
 
 </span></td>
 	<td  width="100px">
-<span style="font-size:22px;color:#353334;">
+<span style="font-size:20px;color:#353334;">
 <a href="#" class="highlight-link">場佈用品</a>
 
 </span></td>
 	<td  width="100px">
-<span style="font-size:22px;color:#353334;">
+<span style="font-size:20px;color:#353334;">
 <a href="#" class="highlight-link">最新消息</a>
 
 </span></td>
 	<td  width="100px">
-<span style="font-size:22px;color:#353334;">
+<span style="font-size:20px;color:#353334;">
 <a href="#" class="highlight-link">詢價單</a>
 
 </span></td>
 
 </tr></table>
+ 
+  </div>
+  </center>
 </header>
 	<center>
 	
@@ -123,9 +58,9 @@
 	
 <div class="carousel">
   <div class="carousel-images" id="carouselImages">
-    <img src="img/Duoyuan.png?text=圖片1" height="300" width="500" alt="圖片1">
-    <img src="img/Duoyuan.png?text=圖片2" height="300" width="500"  alt="圖片2">
-    <img src="img/Duoyuan.png?text=圖片3" height="300" width="500"  alt="圖片3">
+    <img src="img/Duoyuan.png?text=圖片1"  alt="圖片1">
+    <img src="img/Duoyuan.png?text=圖片2"  alt="圖片2">
+    <img src="img/Duoyuan.png?text=圖片3"  alt="圖片3">
   </div>
 
   <div class="carousel-buttons">
@@ -175,6 +110,45 @@
   // 自動播放
   setInterval(nextSlide, 10000);
   updateSlide();
+  
+  // 手機觸控滑動支援
+  let startX = 0;
+  track.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+  });
+
+  track.addEventListener('touchend', e => {
+    let endX = e.changedTouches[0].clientX;
+    if (endX - startX > 50) showSlide(index - 1);     // 左滑
+    else if (startX - endX > 50) showSlide(index + 1); // 右滑
+  });
+  
+  
+  
+    // 滾動檢查是否進入畫面範圍
+  function revealOnScroll() {
+    const reveals = document.querySelectorAll('.reveal');
+    for (let i = 0; i < reveals.length; i++) {
+      const windowHeight = window.innerHeight;
+      const elementTop = reveals[i].getBoundingClientRect().top;
+      const revealPoint = 100;
+
+      if (elementTop < windowHeight - revealPoint) {
+        reveals[i].classList.add('active');
+      }
+    }
+  }
+
+  window.addEventListener('scroll', revealOnScroll);
+  window.addEventListener('load', revealOnScroll); // 首次載入也檢查一次
+  
+  
+  
+  
+  /*yt*/
+  
+  
+  
 </script>
 
 
@@ -186,6 +160,10 @@
 
 	
 <section id="about">
+
+  <div class="reveal_">
+
+
 <center>
 <span style="font-size:35px;color:#136BA9;">
 
@@ -199,55 +177,276 @@ About Duo Yuan<br>
 <span style="font-size:20px;">
 我們專注於為教育與文化傳承打造深具影響力的活動場景。從概念發想到空間設計，<br>
 細緻地撐起每一份對知識的敬意與文化延續的責任，透過創意與設計，放大影響力，<br>
-讓每個有意義的故事都能被看見、被感動、被流傳。<br>
+讓每個有意義的故事都能被看見、被感動、被流傳。<br><br>
 
 
 </center>
+</div>
 </section>
 
 <section id="services">
+
+<center>
+ <div class="reveal_">
+<div class="container">
+
+  <div class="card">
+    <div style="width:250px;border:0px solid;color:#fff"class="image-scale">
+     <center><img src="img/Duoyuan.png" alt="示範圖片">
+	 </div>	 
+    <h3><span style="font-size:20px;color:#136BA9;">
+	<b>活動規劃與行銷顧問<br></b>
+	</span></h3>
+    <p><span style="font-size:18px;color:#000000;">
+從活動前期的策略規劃，到現場執行與後續宣傳，我們提供全方位、一站式的整合服務。涵蓋活動流程設計、預算擬定、場地佈置、設備採購、課程講師安排、接駁導覽與包車等需求，並延伸至來賓邀請、主持人安排、藝人與 KOL 合作、新聞發布等宣傳與統籌，協助您有效傳遞理念、擴散影響力。</p>
+  <a href="#" class="pill-button">了解更多</a>
+  </div>
+
+  <div class="card">
+    <div style="width:250px;border:0px solid;color:#fff"class="image-scale">
+     <center><img src="img/Duoyuan.png" alt="示範圖片">
+	 </div>	 
+    <h3><span style="font-size:20px;color:#136BA9;">
+	<b>廣告道具製作與設計<br></b>
+	</span></h3>
+    <p><span style="font-size:18px;color:#000000;">
+
+</p>
+<a href="#" class="pill-button">了解更多</a>
+  </div>
+
+  <div class="card">
+    <div style="width:250px;border:0px solid;color:#fff"class="image-scale">
+     <center><img src="img/Duoyuan.png" alt="示範圖片">
+	 </div>	 
+    <h3><span style="font-size:20px;color:#136BA9;">
+	<b>路權代辦與施工服務<br></b>
+	</span></h3>
+    <p><span style="font-size:18px;color:#000000;">
+
+</p>
+
+<a href="#" class="pill-button">了解更多</a>
+  </div></div>
+</center>
+
+
+
+
+
+ <div class="reveal_">
 <center>
 <span style="font-size:35px;color:#136BA9;">
-<b>
-    服務內容
-<br></b></span>
 
-<span style="font-size:20px;">
-    <ul>
-        <li>文宣設計 ​/ 輸出製作</li>
-        <li>空間規劃 / 展場設計</li>
-        <li>活動企劃 ​/ 專案管理</li>
-        <li>媒體公關 / 網紅經濟</li>
-	<li>舞台音響 / 影像紀錄</li>
-	<li>旅遊業務 / 參訪交流</li>
-    </ul>
+<b>
+    <br>執行實績<br>
 </span>
+<span style="font-size:20px;color:#136BA9;">
+<b>
+Project Showcase<br>
+</b></span>
+
+
+<center>
+<div class="container">
+
+  <div class="card-image">
+   <div class="image-container" >
+    <img src="img/Duoyuan.png" alt="示範圖片">
+    <div class="tooltip">說明文字</div>
+	
+	
+</div>
+  </div>
+
+  <div class="card-image">
+   <div class="image-container" >
+    <img src="img/Duoyuan.png" alt="示範圖片">
+    <div class="tooltip">說明文字</div>
+	
+	
+</div>
+  </div>
+
+  <div class="card-image">
+    <div class="image-container" >
+    <img src="img/Duoyuan.png" alt="示範圖片">
+    <div class="tooltip">說明文字</div>
+	
+	
+</div>
+</center>
+</div>
+
+<div>
+  <div class="card-image">
+    <img src="img/partner.png" alt="" style="width: 100%;max-width: 100%;">
+	</div>
+</div>
+</section>
+
+
+
+<section id="event_video">
+
+
+
+<div class="carousel-wrapper">
+  <button class="nav-button nav-prev" onclick="prevSlide()">❮</button>
+
+<div class="carousel-container">
+   <div class="carousel-track" id="carouselTrack">
+    <div class="carousel-item">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/15gn_V6ltyU?si=5yG_UmIhMlaDOg0Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="carousel-item">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KjakbE4G0Kg?si=lZGFveFMgExQLS43" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="carousel-item">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/15gn_V6ltyU?si=5yG_UmIhMlaDOg0Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="carousel-item">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KjakbE4G0Kg?si=lZGFveFMgExQLS43" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="carousel-item">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/15gn_V6ltyU?si=5yG_UmIhMlaDOg0Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+    <div class="carousel-item">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KjakbE4G0Kg?si=lZGFveFMgExQLS43" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+	    <div class="carousel-item">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/15gn_V6ltyU?si=5yG_UmIhMlaDOg0Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    </div>
+	    <div class="carousel-item">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/KjakbE4G0Kg?si=lZGFveFMgExQLS43" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <!-- 影片 -->
+	
+	</div>
+  </div>
+  </div>
+<button class="nav-button nav-next" onclick="nextSlide()">❯</button>
+</div>
+
+<div class="dots" id="dots"></div>
+
+
+
+
+<script>
+  const track = document.getElementById("carouselTrack");
+  const item = document.querySelector(".carousel-item");
+  let index = 0;
+
+  function getVisibleCount() {
+    if (window.innerWidth <= 600) return 1;
+    if (window.innerWidth <= 900) return 2;
+    return 3;
+  }
+
+  function updateCarousel() {
+    const visibleCount = getVisibleCount();
+    const itemWidth = item.offsetWidth + 20; // 加上 gap
+    const maxIndex = Math.ceil(track.children.length / visibleCount) - 1;
+    index = Math.max(0, Math.min(index, maxIndex));
+    track.style.transform = `translateX(-${index * visibleCount * itemWidth}px)`;
+  }
+
+  function nextSlide() {
+    index++;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    index--;
+    updateCarousel();
+  }
+
+  window.addEventListener("resize", updateCarousel);
+  window.addEventListener("load", updateCarousel);
+</script>
 
 
 </section>
 
-<section id="contact">
+<section id="quote">
 <center>
 <span style="font-size:35px;color:#136BA9;">
 
 <b>
-
-    聯絡我們
-
+    <br>開始您的詢價流程<br>
 </span>
-    <p>多圓廣告行銷有限公司位於高雄市三民區，處於高雄市中心，交通發達，<br>
-鄰近高雄火車站、高雄高工、高雄醫學大學、國立科學工藝博物館。</p>
-<p><a href="https://www.facebook.com/profile.php?id=100054542045593" target="_blank"><img src="img/fb.png"></a>
-    <p><a href="mailto:duoyuan382@gmail.com" class="highlight-link">duoyuan382@gmail.com</a></p>
-</span></span>
-</section>
+<span style="font-size:20px;color:#136BA9;">
+<b>
+Start Your Quote<br>
+</b></span>
+
+<img src="img/quote.png"><br>
+<p>第1步: 選品項<br>
+第2步: 填資料<br>
+第3步: 送出需求<br><br>
+<b>我們來幫您安排</b></p>
+
+
+
+</center></section>
+
+
+
 
 <footer>
-    <p>多圓廣告行銷有限公司<br>
-807047 高雄市三民區華德街88號<br>
 
 
-TEL：(07)382-8528 │  FAX：(07)380-2515</p>
+
+<table cellpadding="5"  width="80%" align="center" valign="center" border="0">
+  <tr>
+   	<td  width="100px" align="right">
+<div>
+    <img src="img/logo_F.png" alt="多圓廣告行銷有限公司">
+</div>
+
+</span></td>
+   	<td  width="100px" align="center">
+	
+
+
+<table cellpadding="5"    align="left" valign="center" border="0">
+<tr>
+<td colspan="2"><span style="font-size:18px;color:#FFFFFF;">聯絡我們</span></td><tr>
+
+<tr>
+<td><img src="img/F_tel.png"></td><td align="left">07-380-4811 / 0932-345-770</td>
+</tr>
+<td><img src="img/F_mail.png"></td><td align="left"><a href="mailto:duoyuan382@gmail.com" class="highlight-link-w">duoyuan382@gmail.com</a></td>
+<tr>
+<td><img src="img/F_add.png"></td><td align="left">807高雄市三民區華德街88號</td>
+</tr>
+<tr><td></td><td align="left">週一至週五8:30-18:00，國定假日除外</td>
+</tr>
+<tr>
+<td colspan="2">Follow us</td><tr>
+
+<tr>
+<td colspan="2">
+<a href="#" target="_blank" class="highlight-link-w"><img src="img/F1_line.png"></a>
+<a href="https://www.facebook.com/profile.php?id=100054542045593" target="_blank" class="highlight-link-w"><img src="img/F2_fb.png"></a>
+<a href="#" target="_blank" class="highlight-link-w"><img src="img/F3_ig.png"></a>
+<a href="#" target="_blank" class="highlight-link-w"><img src="img/F4_yt.png"></a>
+</td><tr>
+</table>
+
+
+
+</td>
+
+
+
+
+
+</tr></table>
+
+
+
+
 </footer>
 
 </body>

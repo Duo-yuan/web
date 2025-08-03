@@ -3,11 +3,11 @@ body {
     margin: 0;
     line-height: 1.6;
     color: #333;
-    background: #ffffff;
+    background: #F2F2F2;
 }
 
 header {
-    background: #ffffff;
+    background: #F2F2F2;
     color: white;
     text-align: center;
     padding: 1rem;
@@ -37,11 +37,13 @@ ul li {
 
 footer {
     text-align: center;
-    background: #222;
+    background: #136BA9;
     color: white;
     padding: 1rem;
-    margin-top: 3rem;
+   
 }
+
+/*連結底線*/
 
  .highlight-link {
       position: relative;
@@ -56,10 +58,317 @@ footer {
       left: 0;
       width: 0%;
       height: 2px;
-      background-color: orange;
+      background-color: #FDA331;
       transition: width 0.3s ease-in-out;
     }
 
     .highlight-link:hover::after {
       width: 100%;
     }
+	
+	
+	 .highlight-link-w {
+      position: relative;
+      color: #FFF;
+      text-decoration: none;
+    }
+
+    .highlight-link-w::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #FDA331;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .highlight-link-w:hover::after {
+      width: 100%;
+    }
+	
+	/*輪播圖*/
+	
+    .carousel {
+      position: relative;
+      width: 85%;
+	  height: 500px;
+      max-width: 1000px;
+      margin: 10px auto;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    .carousel-images {
+      display: flex;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    .carousel-images img {
+      width: 100%;
+      flex-shrink: 0;
+      object-fit: cover;
+    }
+
+    .carousel-buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .carousel-buttons button {
+      background: rgba(0, 0, 0, 0.5);
+      border: none;
+      color: white;
+      font-size: 24px;
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .carousel-buttons button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+
+    .carousel-dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .carousel-dots span {
+      display: inline-block;
+      width: 12px;
+      height: 12px;
+      margin: 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .carousel-dots .active {
+      background-color: #333;
+    }
+	
+	/*滑動出現*/
+	  .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease-out;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .block {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #f3f3f3;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+	
+/*字卡*/
+	  .container {
+      max-width: 1200px;
+      width: 100%;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+
+    .card {
+      background: #FFFFFF;
+      border-radius: 0px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+
+
+    .card img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 1px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 16px;
+    }
+		
+/*膠囊按鈕*/
+  .pill-button {
+      display: inline-block;
+      padding: 10px 24px;
+      font-size: 16px;
+      color: white;
+      background-color: #A8D5BA;
+      border: none;
+      border-radius: 999px; /* 這讓它變成膠囊形狀 */
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .pill-button:hover {
+      background-color: #FDA331;
+    }	
+	
+	
+	/* 圓形圖片*/
+	
+	  .card-image {
+      background: #f3f3f3;
+      border-radius: 0px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 0px 0px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+	
+	  
+        .image-container {
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-container img {
+            width: 250px;
+            height: 250px;
+            border-radius: 0;
+            transition: border-radius 0.8s, transform 0.8s;
+            display: block;
+        }
+
+        .image-container:hover img {
+            border-radius: 90%;   /* 圓形效果 */
+            transform: scale(1.007); /* 微微放大效果 */
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 4px 8px;
+            font-size: 14px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            pointer-events: none;
+        }
+
+        .image-container:hover .tooltip {
+            opacity: 1; /* 懸停時顯示說明文字 */
+        }
+		
+		
+		/* 微微放大效果 */
+		.image-scale {
+	        display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }	
+        .image-scale:hover img {
+            transform: scale(1.05);
+        }
+		.image-scale img {
+            width: 250px;
+            height: 250px;
+            border-radius: 20;
+            transition: border-radius 0.3s, transform 0.3s;
+            display: block;
+        }
+		
+		/*影片輪播*/
+   .carousel-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 1280px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.carousel-container {
+  overflow: hidden;
+  flex: 1;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  flex: 0 0 30%;
+}
+
+.carousel-item iframe {
+  width: 100%;
+  height: 240px;
+  border-radius: 8px;
+  border: none;
+}
+
+.nav-button {
+  font-size: 28px;
+  background: rgba(0,0,0,0.0);
+  color: black;
+  border: none;
+  padding: 10px 14px;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.nav-button:hover {
+  background: rgba(0,0,0,0.2);
+}
+
+@media (max-width: 900px) {
+  .carousel-item { flex: 0 0 50%; }
+}
+
+@media (max-width: 600px) {
+  .carousel-item { flex: 0 0 100%; }
+}
+	
+	.dots {
+	margin-top: 10px;
+	}
+
+.dots span {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 4px;
+  cursor: pointer;
+}
+
+.dots .active {
+  background: #ff6600;
+}
