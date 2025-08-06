@@ -1,0 +1,264 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    line-height: 1.6;
+    color: #333;
+    background: #F2F2F2;
+}
+
+header {
+    background: #F2F2F2;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+section {
+    max-width: 1000px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+h1, h2 {
+    font-weight: bold;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    background: #eee;
+    margin: 0.5rem 0;
+    padding: 0.5rem;
+    border-radius: 4px;
+}
+
+footer {
+    text-align: center;
+    background: #136BA9;
+    color: white;
+    padding: 1rem;
+   
+}
+
+	  .container {
+      max-width: 1200px;
+      width: 100%;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+
+/*連結底線*/
+
+ .highlight-link {
+      position: relative;
+      color: #333;
+      text-decoration: none;
+    }
+
+    .highlight-link::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #FDA331;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .highlight-link:hover::after {
+      width: 100%;
+    }
+	
+	
+	 .highlight-link-w {
+      position: relative;
+      color: #FFF;
+      text-decoration: none;
+    }
+
+    .highlight-link-w::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2px;
+      background-color: #FDA331;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .highlight-link-w:hover::after {
+      width: 100%;
+    }
+	
+
+/**/
+.section {
+  max-width: 1200px;
+  margin: auto;
+  padding: 10px 20px;
+    align-items: center;
+  justify-content: center;
+  
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+  gap: 40px;
+}
+
+.image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.image, .text {
+  flex: 1;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* 手機版處理 */
+@media (max-width: 768px) {
+  .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .reverse {
+    /* 原本是 column-reverse，改成 column 以強制圖在上文字在下 */
+    flex-direction: column;
+  }
+
+  .image img {
+    max-width: 100%;
+  }
+}
+
+
+
+/* 側邊選單 */
+.sidebar {
+  width: 150px;
+  background: #F2F2F2;
+  color: #333;
+  padding: 50px;
+  position: fixed;
+  height: 100%;
+  top: 100px;
+  left: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar li {
+  margin: 15px 0;
+}
+
+.sidebar a {
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  text-decoration: underline;
+}
+
+/* 選單按鈕（手機時顯示） */
+.menu-toggle {
+  display: none;
+  background: #444;
+  color: white;
+  border: none;
+  font-size: 18px;
+  padding: 10px;
+  margin-bottom: 10px;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.section {
+  margin-left: 35%;
+  padding: 20px;
+  max-width: 900px;
+
+  
+}
+
+/* 圖文交錯 */
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 60px;
+  gap: 40px;
+}
+
+.image img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.image, .text {
+  flex: 1;
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}
+
+/* 手機樣式 */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    position: relative;
+    width: 100%;
+    height: auto;
+    display: none;
+  }
+
+  .sidebar.active {
+    display: block;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .section {
+    margin-left: 0;
+  }
+
+  .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .reverse {
+    flex-direction: column; /* 手機時上圖下文 */
+  }
+}
+
+/* 平滑滾動 */
+html {
+  scroll-behavior: smooth;
+}
