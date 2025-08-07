@@ -29,7 +29,7 @@ ul {
 }
 
 ul li {
-    background: #eee;
+    background: #FFF;
     margin: 0.5rem 0;
     padding: 0.5rem;
     border-radius: 4px;
@@ -45,10 +45,16 @@ footer {
 
 	  .container {
       max-width: 1200px;
-      width: 100%;
+      width: 50%;
       display: grid;
       gap: 20px;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	  
+  margin: auto;
+  
+  padding: 10px 20px;
+    align-items: center;
+  justify-content: center;
     }
 
 /*連結底線*/
@@ -151,14 +157,26 @@ footer {
 
 /* 側邊選單 */
 .sidebar {
+ 
+}
+
+
+.sidebar {
   width: 150px;
-  background: #F2F2F2;
+  background: transparent;
   color: #333;
   padding: 50px;
   position: fixed;
   height: 100%;
   top: 100px;
-  left: 0;
+  left: 400px;
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.sidebar.hide {
+  opacity: 0;
+  transform: translateX(-30px);
+  pointer-events: none;
 }
 
 .sidebar ul {
@@ -182,8 +200,8 @@ footer {
 /* 選單按鈕（手機時顯示） */
 .menu-toggle {
   display: none;
-  background: #444;
-  color: white;
+  background: transparent;
+  color: black;
   border: none;
   font-size: 18px;
   padding: 10px;
@@ -223,6 +241,15 @@ footer {
   flex-direction: row-reverse;
 }
 
+@media (max-width: 1600px) {
+  body {
+    flex-direction: column;
+  }
+
+  .sidebar {
+  left: 90px;
+  }
+}
 /* 手機樣式 */
 @media (max-width: 768px) {
   body {
@@ -233,7 +260,11 @@ footer {
     position: relative;
     width: 100%;
     height: auto;
+	top: 1px;
+	left: 1px;
+	padding: 5px;
     display: none;
+	
   }
 
   .sidebar.active {
@@ -258,7 +289,86 @@ footer {
   }
 }
 
+
+  
+
+
 /* 平滑滾動 */
 html {
   scroll-behavior: smooth;
 }
+
+.reveal-image {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-image.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/*膠囊按鈕*/
+  .pill-button {
+      display: inline-block;
+      padding: 6px 20px;
+      font-size: 14px;
+      color: white;
+      background-color: #A8D5BA;
+      border: none;
+      border-radius: 999px; /* 這讓它變成膠囊形狀 */
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .pill-button:hover {
+      background-color: #FDA331;
+    }	
+	
+	/*字卡*/
+		  .container_n {
+      max-width: 1200px;
+      width: 50%;
+      display: grid;
+      gap: 20px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	  
+  margin: auto;
+   margin-left: 34%;
+  padding: 10px 20px;
+    align-items: center;
+  justify-content: center;
+	
+	
+	
+    .card {
+      background: #FFFFFF;
+      border-radius: 0px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 2px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
+    }
+
+
+
+    .card img {
+      width: 100%;
+      max-height: 250px;
+      object-fit: cover;
+      border-radius: 1px;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin: 0 0 10px;
+      font-size: 20px;
+    }
+
+    .card p {
+      color: #555;
+      font-size: 16px;
+    }
