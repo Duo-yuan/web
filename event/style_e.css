@@ -331,13 +331,13 @@ html {
 	/*字卡*/
 		  .container_n {
       max-width: 1200px;
-      width: 50%;
+      width: 100%;
       display: grid;
       gap: 20px;
       grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 	  
   margin: auto;
-   margin-left: 34%;
+
   padding: 10px 20px;
     align-items: center;
   justify-content: center;
@@ -361,6 +361,7 @@ html {
       object-fit: cover;
       border-radius: 1px;
       margin-bottom: 15px;
+	
     }
 
     .card h3 {

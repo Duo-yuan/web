@@ -15,7 +15,7 @@ window.addEventListener("scroll", function () {
 
   const isDesktop = window.innerWidth >= 768;
 
-  if (isDesktop && scrollPercent > 0.93) {
+  if (isDesktop && scrollPercent > 0.95) {
     sidebar.classList.add('hide');
   } else {
     sidebar.classList.remove('hide');

@@ -7,10 +7,18 @@ body {
 }
 
 header {
-    background: #F2F2F2;
+	background: #F2F2F2;
     color: white;
     text-align: center;
     padding: 1rem;
+	 position: fixed;
+    top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;     /* 確保蓋在內容之上 */
+  box-shadow: 0 2px 5px rgba(0,0,0,0); /* 選擇性加陰影 */
+
+
 }
 
 section {
