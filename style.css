@@ -336,8 +336,39 @@ footer {
 
 .carousel-item iframe {
   width: 100%;
-  height: 240px;
-  border-radius: 8px;
+  height: 520px;
+  border-radius: 6px;
+  border: none;
+}
+
+   .carousel-wrapper-L {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  max-width: 1280px;
+  margin: auto;
+  padding: 20px 0;
+}
+
+.carousel-container-L {
+  overflow: hidden;
+  flex: 1;
+}
+
+.carousel-track-L {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s ease;
+}
+.carousel-item-L {
+  flex: 0 0 70%;
+}
+
+.carousel-item-L iframe {
+  width: 100%;
+  height: 480px;
+  border-radius: 6px;
   border: none;
 }
 
@@ -379,4 +410,78 @@ footer {
 
 .dots .active {
   background: #ff6600;
+}
+
+/*yt*/
+.YT-carousel {
+  position: relative;
+  overflow: hidden;
+  margin: 40px auto;
+  max-width: 1000px;
+}
+
+.YT-track {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+/* 左右切換按鈕 */
+.YT-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 2;
+}
+.YT-prev { left: 10px; }
+.YT-next { right: 10px; }
+
+/* 點點 */
+.YT-dots {
+  text-align: center;
+  margin: 10px 0;
+}
+.YT-dots span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 4px;
+  cursor: pointer;
+}
+.YT-dots .active {
+  background: #ff6600;
+}
+
+/* ======================= */
+/* 輪播 1：直式短影音 9:16 */
+/* ======================= */
+.YT-carousel-vertical .YT-item {
+  flex: 0 0 29%; /* 顯示約 3 個完整 + 一部分第 4 個 */
+  margin-right: 10px;
+}
+.YT-carousel-vertical iframe {
+  width: 100%;
+  aspect-ratio: 9 / 16;
+  border-radius: 8px;
+  border: none;
+}
+
+/* ======================= */
+/* 輪播 2：橫式影片 16:9   */
+/* ======================= */
+.YT-carousel-horizontal .YT-item {
+  flex: 0 0 100%; /* 顯示 1 個完整 + 一部分第 2 個 */
+  margin-right: 10px;
+}
+.YT-carousel-horizontal iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 8px;
+  border: none;
 }

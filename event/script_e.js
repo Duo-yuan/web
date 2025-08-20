@@ -36,3 +36,5 @@ window.addEventListener("scroll", function () {
     image.classList.remove('visible'); // 回到小於10%，隱藏圖片
   }
 });
+
+
